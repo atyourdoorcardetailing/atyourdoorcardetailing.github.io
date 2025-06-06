@@ -23,9 +23,49 @@
             height: 100vh;
             display: flex;
             flex-direction: column;
+            overflow-y: auto;
         }
 
-        /* Header */
+        /* Sub Header */
+        .sub-header {
+            background: #f8f9fa;
+            padding: 8px 0;
+            text-align: center;
+            border-bottom: 1px solid #e9ecef;
+            flex-shrink: 0;
+        }
+
+        .sub-header-content {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 20px;
+            font-weight: 600;
+            font-size: 0.9rem;
+        }
+
+        .sub-phone {
+            background: #2596be;
+            color: white;
+            padding: 6px 16px;
+            border-radius: 20px;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .sub-phone:hover {
+            background: #1a7a9e;
+            transform: translateY(-1px);
+        }
+
+        .sub-award {
+            background: #ffd700;
+            color: #333;
+            padding: 6px 12px;
+            border-radius: 15px;
+            font-size: 0.8rem;
+            font-weight: 700;
+        }
         .header {
             background: linear-gradient(135deg, #2596be 0%, #1a7a9e 100%);
             color: white;
@@ -35,18 +75,17 @@
         }
 
         .header-content {
-            display: flex;
-            justify-content: space-between;
+            display: grid;
+            grid-template-columns: 1fr 2fr 1fr;
             align-items: center;
-            flex-wrap: wrap;
-            gap: 8px;
+            gap: 20px;
         }
 
         .logo {
             display: flex;
             align-items: center;
+            justify-content: flex-start;
             gap: 15px;
-            margin-right: auto;
         }
 
         .logo-img {
@@ -54,18 +93,20 @@
             height: 70px;
             object-fit: contain;
             border-radius: 8px;
-            margin-left: -10px;
         }
 
         .logo-text {
             font-size: 1.4rem;
             font-weight: 800;
             letter-spacing: 1px;
+            text-align: center;
+            justify-self: center;
         }
 
         .contact-info {
             display: flex;
             align-items: center;
+            justify-content: flex-end;
             gap: 15px;
             font-weight: 600;
             font-size: 0.9rem;
@@ -99,7 +140,13 @@
         .main-container {
             flex: 1;
             display: grid;
-            grid-template-columns: 60% 40%;
+            grid-template-rows: 1fr auto;
+            min-height: 0;
+        }
+
+        .content-wrapper {
+            display: grid;
+            grid-template-columns: 1fr;
             min-height: 0;
         }
 
@@ -107,7 +154,6 @@
         .services-section {
             background: #f8f9fa;
             padding: 15px;
-            overflow: hidden;
             display: flex;
             flex-direction: column;
             gap: 10px;
@@ -117,8 +163,7 @@
             display: grid;
             grid-template-columns: 1fr 1fr;
             gap: 10px;
-            flex: 1;
-            overflow: hidden;
+            align-items: start;
         }
 
         .service-card {
@@ -128,9 +173,10 @@
             padding: 8px;
             box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
             transition: all 0.2s ease;
-            overflow: hidden;
             display: flex;
             flex-direction: column;
+            height: auto;
+            min-height: fit-content;
         }
 
         .service-card:hover {
@@ -270,9 +316,9 @@
         .photo-section {
             background: #ffffff;
             display: grid;
-            grid-template-columns: 1fr 1fr;
-            grid-template-rows: 1fr 1fr;
-            gap: 1px;
+            grid-template-columns: 1fr 1fr 1fr 1fr;
+            gap: 10px;
+            padding: 15px;
             overflow: hidden;
         }
 
@@ -282,38 +328,43 @@
             cursor: pointer;
             transition: all 0.3s ease;
             overflow: hidden;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            height: 120px;
         }
 
         .photo-card:hover {
-            transform: scale(1.02);
-            z-index: 10;
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(37, 150, 190, 0.3);
         }
 
         .photo-card:nth-child(1) {
-            background: linear-gradient(45deg, #2596be, #1a7a9e);
+            background: linear-gradient(45deg, #e91e63, #ad1457);
         }
 
         .photo-card:nth-child(2) {
-            background: linear-gradient(45deg, #27ae60, #2ecc71);
+            background: linear-gradient(45deg, #27ae60, #1e8449);
         }
 
         .photo-card:nth-child(3) {
-            background: linear-gradient(45deg, #e74c3c, #c0392b);
+            background: linear-gradient(45deg, #f39c12, #d68910);
         }
 
         .photo-card:nth-child(4) {
-            background: linear-gradient(45deg, #f39c12, #e67e22);
+            background: linear-gradient(45deg, #9b59b6, #7d3c98);
         }
 
         .photo-placeholder {
             width: 100%;
             height: 100%;
             display: flex;
+            flex-direction: column;
             align-items: center;
             justify-content: center;
-            font-size: 4rem;
+            font-size: 2.5rem;
             color: white;
             position: relative;
+            text-align: center;
         }
 
         .photo-placeholder::before {
@@ -323,7 +374,7 @@
             left: 0;
             right: 0;
             bottom: 0;
-            background: rgba(0, 0, 0, 0.2);
+            background: rgba(0, 0, 0, 0.1);
             z-index: 1;
         }
 
@@ -332,48 +383,15 @@
             z-index: 2;
         }
 
-        .instagram-overlay {
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            background: linear-gradient(transparent, rgba(0, 0, 0, 0.8));
-            color: white;
-            padding: 15px 10px 10px;
-            text-align: center;
-            font-weight: 600;
-            font-size: 0.9rem;
-            z-index: 3;
-        }
-
-        .instagram-handle {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 5px;
-        }
-
-        .instagram-icon {
-            font-size: 1.2rem;
+        .platform-name {
+            font-size: 1rem;
+            font-weight: 700;
+            margin-top: 8px;
+            position: relative;
+            z-index: 2;
         }
 
         /* Footer */
-        .footer {
-            background: #333;
-            color: white;
-            padding: 6px 20px;
-            text-align: center;
-            flex-shrink: 0;
-            font-size: 0.8rem;
-        }
-
-        .footer-content {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            flex-wrap: wrap;
-            gap: 8px;
-        }
 
         /* Mobile Responsive */
         @media (max-width: 1024px) {
@@ -381,13 +399,22 @@
                 grid-template-columns: 65% 35%;
             }
             
-            .services-grid {
-                grid-template-columns: 1fr;
-            }
-            
             .photo-section {
-                grid-template-columns: 1fr;
-                grid-template-rows: repeat(4, 1fr);
+                grid-template-columns: 1fr 1fr;
+                padding: 10px;
+                gap: 8px;
+            }
+
+            .photo-card {
+                height: 100px;
+            }
+
+            .photo-placeholder {
+                font-size: 2rem;
+            }
+
+            .platform-name {
+                font-size: 0.9rem;
             }
         }
 
@@ -433,8 +460,21 @@
             }
 
             .photo-section {
-                grid-template-columns: repeat(4, 1fr);
-                grid-template-rows: 1fr;
+                grid-template-columns: 1fr 1fr;
+                padding: 8px;
+                gap: 6px;
+            }
+
+            .photo-card {
+                height: 80px;
+            }
+
+            .photo-placeholder {
+                font-size: 1.5rem;
+            }
+
+            .platform-name {
+                font-size: 0.8rem;
             }
 
             .service-card {
@@ -464,18 +504,25 @@
             <div class="header-content">
                 <div class="logo">
                     <img src="logo.png" alt="At Your Door Logo" class="logo-img">
-                    <div class="logo-text">AT YOUR DOOR Mobile Detail</div>
                 </div>
+                <div class="logo-text">AT YOUR DOOR Mobile Detail</div>
                 <div class="contact-info">
-                    <a href="tel:5207032543" class="phone">(520) 703-2543</a>
-                    <div class="award">🏆 Neighborhood Faves</div>
+                    <!-- Contact moved to sub-header -->
                 </div>
             </div>
         </header>
 
+        <div class="sub-header">
+            <div class="sub-header-content">
+                <a href="tel:5207032543" class="sub-phone">(520) 703-2543</a>
+                <div class="sub-award">🏆 Neighborhood Faves</div>
+            </div>
+        </div>
+
         <div class="main-container">
-            <!-- Left Side - Services -->
-            <div class="services-section">
+            <div class="content-wrapper">
+                <!-- Services Section -->
+                <div class="services-section">
                 <div class="services-grid">
                     <!-- Card 1 -->
                     <div class="service-card">
@@ -590,75 +637,56 @@
                 </div>
             </div>
 
-            <!-- Right Side - Photo Gallery -->
+            <!-- Bottom Platform Cards -->
             <div class="photo-section">
-                <div class="photo-card" onclick="openInstagram('photo1')">
+                <div class="photo-card" onclick="openPlatform('instagram')">
                     <div class="photo-placeholder">
-                        <span>🚗</span>
-                    </div>
-                    <div class="instagram-overlay">
-                        <div class="instagram-handle">
-                            <span class="instagram-icon">📷</span>
-                            <span>@atyourdoordetail</span>
-                        </div>
+                        <span>📷</span>
+                        <div class="platform-name">Instagram</div>
                     </div>
                 </div>
 
-                <div class="photo-card" onclick="openInstagram('photo2')">
+                <div class="photo-card" onclick="openPlatform('nextdoor')">
                     <div class="photo-placeholder">
-                        <span>✨</span>
-                    </div>
-                    <div class="instagram-overlay">
-                        <div class="instagram-handle">
-                            <span class="instagram-icon">📷</span>
-                            <span>@atyourdoordetail</span>
-                        </div>
+                        <span>🏠</span>
+                        <div class="platform-name">Next Door</div>
                     </div>
                 </div>
 
-                <div class="photo-card" onclick="openInstagram('photo3')">
+                <div class="photo-card" onclick="openPlatform('yelp')">
                     <div class="photo-placeholder">
-                        <span>🌟</span>
-                    </div>
-                    <div class="instagram-overlay">
-                        <div class="instagram-handle">
-                            <span class="instagram-icon">📷</span>
-                            <span>@atyourdoordetail</span>
-                        </div>
+                        <span>⭐</span>
+                        <div class="platform-name">Yelp</div>
                     </div>
                 </div>
 
-                <div class="photo-card" onclick="openInstagram('photo4')">
+                <div class="photo-card" onclick="openPlatform('slideshow')">
                     <div class="photo-placeholder">
-                        <span>🔥</span>
-                    </div>
-                    <div class="instagram-overlay">
-                        <div class="instagram-handle">
-                            <span class="instagram-icon">📷</span>
-                            <span>@atyourdoordetail</span>
-                        </div>
+                        <span>🎬</span>
+                        <div class="platform-name">Slide Show</div>
                     </div>
                 </div>
             </div>
         </div>
-
-        <footer class="footer">
-            <div class="footer-content">
-                <div>🏆 Winner of Neighborhood Faves | Mon-Sat: 6AM-10PM</div>
-                <div>Call/Text (520) 703-2543 for Appointment</div>
-            </div>
-        </footer>
     </div>
 
     <script>
-        function openInstagram(photoId) {
-            // Replace with your actual Instagram handle and post URLs
-            const instagramHandle = 'atyourdoordetail';
-            const instagramURL = `https://instagram.com/${instagramHandle}`;
-            
-            // You can customize this to link to specific posts
-            // For specific posts, use: https://instagram.com/p/POST_ID/
-            window.open(instagramURL, '_blank');
+        function openPlatform(platform) {
+            switch(platform) {
+                case 'instagram':
+                    window.open('https://instagram.com/atyourdoordetail', '_blank');
+                    break;
+                case 'nextdoor':
+                    window.open('https://nextdoor.com', '_blank');
+                    break;
+                case 'yelp':
+                    window.open('https://yelp.com/biz/at-your-door-mobile-detail', '_blank');
+                    break;
+                case 'slideshow':
+                    // You can replace this with your slideshow URL
+                    alert('Slideshow coming soon!');
+                    break;
+            }
         }
     </script>
 </body>
